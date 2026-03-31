@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api";
+const API = "https://lms-75vr.onrender.com/api";
 
 // 🔹 GET ALL COURSES
 export const getCourses = async () => {

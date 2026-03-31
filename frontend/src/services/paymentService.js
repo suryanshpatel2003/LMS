@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/payment";
+const API = "https://lms-75vr.onrender.com/api/payment";
 
 // 🔹 CREATE ORDER
 export const createOrder = async (courseId, token) => {

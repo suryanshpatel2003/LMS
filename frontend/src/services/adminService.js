@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api";
+const API = "https://lms-75vr.onrender.com/api";
 
 export const createCourse = async (formData, token) => {
   return axios.post(`${API}/courses`, formData, {
