@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../../styles/global.css";
 
 const FAQSection = () => {
-
   const faqData = {
     general: [
       {
@@ -106,25 +105,26 @@ const FAQSection = () => {
 
   return (
     <section className="faq-section">
-      <div className="container">
-
+      <div className="faq-container">
         <h2 className="faq-title">FAQ</h2>
 
-        {/* Tabs */}
+        {/* Tabs - Now Responsive */}
         <div className="faq-tabs">
-          {["general", "admissions", "campus", "fees"].map((tab) => (
+          {[
+            { id: "general", label: "General" },
+            { id: "admissions", label: "Admissions" },
+            { id: "campus", label: "Campus & Life" },
+            { id: "fees", label: "Fees & Scholarships" }
+          ].map((tab) => (
             <button
-              key={tab}
-              className={activeTab === tab ? "active-tab" : ""}
+              key={tab.id}
+              className={activeTab === tab.id ? "active-tab" : ""}
               onClick={() => {
-                setActiveTab(tab);
+                setActiveTab(tab.id);
                 setOpenIndex(0);
               }}
             >
-              {tab === "general" && "General"}
-              {tab === "admissions" && "Admissions"}
-              {tab === "campus" && "Campus & Life"}
-              {tab === "fees" && "Fees & Scholarships"}
+              {tab.label}
             </button>
           ))}
         </div>
@@ -138,17 +138,18 @@ const FAQSection = () => {
               onClick={() => toggleFAQ(index)}
             >
               <div className="faq-question">
-                {item.q}
-                <span>{openIndex === index ? "-" : "+"}</span>
+                <span className="q-text">{item.q}</span>
+                <span className="q-icon">{openIndex === index ? "−" : "+"}</span>
               </div>
 
               {openIndex === index && (
-                <div className="faq-answer">{item.a}</div>
+                <div className="faq-answer">
+                   <p>{item.a}</p>
+                </div>
               )}
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
