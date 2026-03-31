@@ -6,15 +6,15 @@ const AICoreSection = () => {
   const data = {
     build: [
       {
-        img: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620",
+        img: "https://webcdn.imarticus.org/test/Card11.webp",
         text: "Harsh built an AI-powered stock trading bot that analyses real-time markets"
       },
       {
-        img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+        img: "https://webcdn.imarticus.org/test/Card21.webp",
         text: "Rashmi’s innovative fraud detection and risk prediction model using AI"
       },
       {
-        img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df",
+        img: "https://webcdn.imarticus.org/test/Card31.webp",
         text: "Harun’s AI-optimised portfolios and forecasting engine"
       }
     ],

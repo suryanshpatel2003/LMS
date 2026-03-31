@@ -68,16 +68,16 @@ const ExperienceSection = () => {
               <div className="card-right-green">
                 <div className="green-inner">
                   <div className="top-banner">
-                    <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&w=400&q=80" alt="campus" />
+                    <img src="https://webcdn.imarticus.org/ugsof/IIMVTab.webp" alt="campus" />
                     <div className="overlay-txt">Live and Learn at <span>IIM Visakhapatnam</span></div>
                   </div>
                   <div className="bottom-grid">
                     <div className="grid-item">
-                      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=200&q=80" alt="hackathon" />
+                      <img src="https://webcdn.imarticus.org/test/Frame1686565626.webp" alt="hackathon" />
                       <p>FinAce Hackathon</p>
                     </div>
                     <div className="grid-item">
-                      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=200&q=80" alt="council" />
+                      <img src="https://webcdn.imarticus.org/ugsof/IIMVTab.webp" alt="council" />
                       <p>Finance Skill Council</p>
                     </div>
                   </div>

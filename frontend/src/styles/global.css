@@ -135,11 +135,11 @@ body {
 /* ================= FORM CARD (COMPACT) ================= */
 .form-card {
   background: #fff;
-  padding: 20px;
-  border-radius: 15px;
+  padding: 15px; /* 20px se kam karke 15px kiya */
+  border-radius: 12px;
   color: #333;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-  max-width: 440px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  max-width: 380px; /* Width 440px se kam karke 380px ki */
   margin-left: auto;
   position: relative;
   z-index: 5;
@@ -148,41 +148,70 @@ body {
 .highlight-text { 
   color: #005a42; 
   font-weight: 700; 
-  font-size: 1.7rem; 
+  font-size: 1.4rem; /* Font size thoda chota kiya */
   font-style: italic;
-  line-height: 1.1;
+  line-height: 1;
+  margin-bottom: 5px; /* Margin kam ki */
+}
+
+.form-heading {
+  font-size: 16px; /* Heading size control karne ke liye */
+  margin-bottom: 2px;
+}
+
+.form-sub { 
+  font-size: 11px; 
+  color: #666; 
+  margin-bottom: 10px; /* Space kam kiya */
+  line-height: 1.3;
+}
+
+.login-link {
+  font-size: 12px;
   margin-bottom: 10px;
 }
 
-.form-sub { font-size: 12px; color: #666; margin-bottom: 15px; }
-
 .form-card input, .form-card select {
   width: 100%;
-  padding: 10px 14px;
-  margin-bottom: 12px;
+  padding: 8px 12px; /* Inner padding kam ki */
+  margin-bottom: 8px; /* Inputs ke beech ka gap kam kiya */
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 13px;
+  font-size: 12px; /* Text size chota kiya */
 }
 
-.phone-input-group { display: flex; margin-bottom: 12px; }
-.country-code {
-  border: 1px solid #ddd; border-right: none;
-  padding: 10px; background: #f8f9fa;
-  border-radius: 5px 0 0 5px;
+.phone-input-group { 
+  display: flex; 
+  margin-bottom: 8px; 
 }
-.phone-input-group input { border-radius: 0 5px 5px 0; margin-bottom: 0; }
+
+.country-code {
+  border: 1px solid #ddd; 
+  border-right: none;
+  padding: 8px; 
+  background: #f8f9fa;
+  border-radius: 5px 0 0 5px;
+  font-size: 12px;
+}
 
 .submit-btn {
   width: 100%;
   background: #004d38;
   color: #fff;
-  padding: 12px;
+  padding: 10px; /* Button height kam ki */
   border: none;
-  border-radius: 30px;
+  border-radius: 25px;
   font-weight: 700;
+  font-size: 13px;
   text-transform: uppercase;
   margin-top: 5px;
+}
+
+.terms-text {
+  font-size: 10px; /* Footer text chota kiya */
+  margin-top: 8px;
+  text-align: center;
+  color: #888;
 }
 
 /* ================= FEATURES OVERLAP (GAP FIXED) ================= */
@@ -244,133 +273,213 @@ body {
 }
 
 
-/* SECTION WRAPPER */
+/* ==========================================
+   GREEN SECTION - STICKY STACK EFFECT
+   ========================================== */
+
 .green-section {
   background: #ffffff;
   padding: 80px 0;
   position: relative;
 }
 
-/* STICKY LEFT TEXT */
+/* LEFT SIDE - STICKY TEXT */
 .sticky-text {
   position: sticky;
-  top: 150px;
-  margin-bottom: 30px;
+  top: 120px; /* Desktop par header se gap */
+  margin-bottom: 40px;
+  z-index: 10;
 }
 
 .sticky-text h2 {
-  font-size: 38px;
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #000;
+  margin-bottom: 20px;
 }
 
-.sticky-text span {
+.sticky-text h2 span {
   color: #005a42;
   font-style: italic;
 }
 
 .sticky-text p {
-  color: #666;
-  font-size: 15px;
-  margin-top: 15px;
-  max-width: 90%;
+  color: #555;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 85%;
 }
 
-/* CARDS CONTAINER */
+/* RIGHT SIDE - CARDS STACK */
 .cards-stack-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Ensures everything in this column is centered */
+  gap: 0; /* Sticky cards ke liye gap 0 rakha hai taaki top se overlap ho sakein */
 }
 
-/* INDIVIDUAL SCROLL CARDS */
+/* INDIVIDUAL CARD STYLING */
 .scroll-card {
   position: sticky;
-  width: 100%; /* Full width of the col-lg-7 */
-  height: 280px; 
-  border-radius: 20px;
-  padding: 35px;
-  margin-bottom: 80px; /* Reduced margin for tighter scroll */
+  width: 100%;
+  min-height: 300px;
+  border-radius: 24px;
+  padding: 40px;
   display: flex;
   align-items: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.08); /* Top shadow for stack look */
+  margin-bottom: 60px; /* Space for the next card to scroll up */
+  transition: transform 0.3s ease;
 }
 
 .scroll-card.light {
-  background-color: #d4f07d; /* Lime color */
+  background-color: #d4f07d; /* Lime */
   color: #000;
 }
 
 .scroll-card.dark {
-  background-color: #00231a; /* Darkest Green */
+  background-color: #00231a; /* Deep Green */
   color: #fff;
 }
 
-/* CARD CONTENT LAYOUT */
+/* CARD INTERNAL CONTENT */
 .card-inner {
   display: flex;
-  gap: 25px;
+  gap: 30px;
   align-items: center;
   width: 100%;
 }
 
 .card-inner img {
-  width: 220px;
-  height: 160px;
+  width: 240px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 16px;
   flex-shrink: 0;
 }
 
 .card-content h5 {
-  font-weight: 700;
-  font-size: 1.4rem;
-  margin-bottom: 10px;
+  font-weight: 800;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  line-height: 1.2;
 }
 
 .card-content p {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 500;
   line-height: 1.5;
   opacity: 0.9;
 }
 
-/* FINAL CENTERED BUTTON */
+/* FINAL CTA BUTTON */
 .final-btn-container {
   width: 100%;
   display: flex;
-  justify-content: center; /* Perfectly centers the button horizontally */
-  margin-top: -20px; /* Reduces gap between last card and button */
-  padding-top: 20px;
-  z-index: 20;
+  justify-content: center;
+  padding: 40px 0;
+  position: relative;
+  z-index: 50; /* Cards ke upar rahega */
 }
 
 .start-journey-btn {
   background: #004d38;
   color: #fff;
   border: none;
-  padding: 14px 40px;
-  border-radius: 30px;
+  padding: 16px 45px;
+  border-radius: 40px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
   display: flex;
   align-items: center;
   gap: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 77, 56, 0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .start-journey-btn:hover {
   background: #003a2a;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transform: scale(1.05);
 }
 
-/* RESPONSIVE FIXES */
+.start-journey-btn .arrow {
+  font-size: 20px;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN (MOBILE & TABLET)
+   ========================================== */
+
 @media (max-width: 991px) {
-  .sticky-text { position: relative; top: 0; text-align: center; margin-bottom: 40px; }
-  .scroll-card { position: relative !important; top: 0 !important; height: auto; margin-bottom: 20px; padding: 20px; }
-  .card-inner { flex-direction: column; text-align: center; }
-  .card-inner img { width: 100%; height: 200px; }
+  .green-section {
+    padding: 60px 0;
+  }
+
+  .sticky-text {
+    position: relative; /* Mobile pe sticky hata diya */
+    top: 0;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .sticky-text h2 {
+    font-size: 30px;
+  }
+
+  .sticky-text p {
+    max-width: 100%;
+    font-size: 15px;
+  }
+
+  /* Folder Stack Effect for Mobile */
+  .scroll-card {
+    position: sticky !important; /* Mobile par stack effect ke liye zaroori */
+    top: 90px !important; /* Har card is point par aakar rukega */
+    height: auto;
+    min-height: auto;
+    padding: 25px;
+    margin-bottom: 30px; /* Cards ke beech gap chota kiya */
+    border-radius: 20px;
+  }
+
+  /* Overriding inline top styles for mobile to ensure uniform stacking */
+  .scroll-card[style] {
+    top: 90px !important; 
+  }
+
+  .card-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .card-inner img {
+    width: 100%;
+    height: 160px;
+  }
+
+  .card-content h5 {
+    font-size: 1.3rem;
+  }
+
+  .card-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .scroll-card {
+    top: 70px !important; /* Choti screens par aur upar */
+    padding: 20px;
+  }
+  
+  .start-journey-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 16px;
+  }
 }
 
 
@@ -1530,61 +1639,116 @@ body {
 .footer {
   background: #0b4d45;
   color: #fff;
-  padding: 40px 0 20px; /* height kam */
+  padding: 50px 0 30px;
 }
 
-/* Top layout */
 .footer-top {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-.footer-col h4 {
+.footer-heading {
   font-style: italic;
-  margin-bottom: 10px;
-  font-size: 18px; /* smaller heading */
+  font-weight: 700; /* Bold heading */
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #fff;
 }
 
 .footer-logo {
-  width: 100px; /* thoda chhota */
-  margin-bottom: 10px;
+  width: 130px; /* Thoda bada size */
+  margin-bottom: 20px;
 }
 
-.footer-col p {
-  font-size: 13px; /* text chhota */
-  line-height: 1.5;
+/* Bold and Large Text */
+.footer-bold-text {
+  font-size: 15px; 
+  font-weight: 600; /* Text ko bold kiya */
+  line-height: 1.6;
+  color: #f1f1f1;
 }
 
 /* Social icons */
 .social-icons {
   display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 18px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.icon-box:hover {
+  background: #fff;
+  color: #0b4d45;
+}
+
+/* Links List */
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns for links */
   gap: 10px;
-  margin-top: 8px;
 }
 
-.social-icons span {
-  width: 34px;
-  height: 34px;
-  font-size: 14px;
+.footer-links-list li {
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-/* Links */
-.footer-col ul li {
-  margin-bottom: 6px;
-  font-size: 13px;
+.footer-links-list li:hover {
+  color: #ffcc00; /* Accent color hover par */
 }
 
 /* Divider */
 .footer-line {
   height: 1px;
-  background: #ffffff40;
-  margin: 20px 0;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 30px 0 20px;
 }
 
-/* Bottom */
+/* Bottom Bar */
 .footer-bottom {
   display: flex;
   justify-content: space-between;
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 768px) {
+  .footer {
+    text-align: center; /* Mobile par sab center ho jayega */
+  }
+
+  .footer-col {
+    margin-bottom: 30px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .footer-links-list {
+    grid-template-columns: 1fr; /* Mobile par single column links */
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 

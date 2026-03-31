@@ -13,32 +13,32 @@ const Leaders = () => {
   const data = [
     // TAB 0: Domain Visionaries
     [
-      { name: "Ajay Rajan", role: "Country Head, Transaction Banking", company: "YES BANK", img: "https://randomuser.me/api/portraits/men/11.jpg" },
-      { name: "Rajat Mathur", role: "Senior Advisor & Ex MD", company: "Morgan Stanley", img: "https://randomuser.me/api/portraits/men/12.jpg" },
-      { name: "Akhil Chaturvedi", role: "Chief Business Officer", company: "Motilal Oswal", img: "https://randomuser.me/api/portraits/men/13.jpg" },
-      { name: "Ravindra Pandey", role: "Dy Managing Director, COO", company: "SBI", img: "https://randomuser.me/api/portraits/men/14.jpg" },
-      { name: "Saurabh Jain", role: "Vice President", company: "Paytm", img: "https://randomuser.me/api/portraits/men/32.jpg" },
-      { name: "Ankit Sharma", role: "VP Finance", company: "Barclays", img: "https://randomuser.me/api/portraits/men/33.jpg" },
-      { name: "Vikram Sethi", role: "Director", company: "Deutsche Bank", img: "https://randomuser.me/api/portraits/men/34.jpg" },
-      { name: "Priya Nair", role: "Head of Finance", company: "HDFC", img: "https://randomuser.me/api/portraits/women/35.jpg" }
+      { name: "Ajay Rajan", role: "Country Head, Transaction Banking", company: "YES BANK", img: "https://webcdn.imarticus.org/SOF/PhilipF.webp" },
+      { name: "Rajat Mathur", role: "Senior Advisor & Ex MD", company: "Morgan Stanley", img: "https://webcdn.imarticus.org/SOF/AjayR.webp" },
+      { name: "Akhil Chaturvedi", role: "Chief Business Officer", company: "Motilal Oswal", img: "https://webcdn.imarticus.org/SOF/RajatM.webp" },
+      { name: "Ravindra Pandey", role: "Dy Managing Director, COO", company: "SBI", img: "https://webcdn.imarticus.org/SOF/AkhilC.webp" },
+      { name: "Saurabh Jain", role: "Vice President", company: "Paytm", img: "https://webcdn.imarticus.org/SOF/RavindraP.webp" },
+      { name: "Ankit Sharma", role: "VP Finance", company: "Barclays", img: "https://webcdn.imarticus.org/SOF/AmitR.webp" },
+      { name: "Vikram Sethi", role: "Director", company: "Deutsche Bank", img: "https://webcdn.imarticus.org/SOF/VikasK.webp" },
+      { name: "Priya Nair", role: "Head of Finance", company: "HDFC", img: "https://webcdn.imarticus.org/SOF/AvantikaT.webp" }
     ],
     // TAB 1: Academic Leaders
     [
-      { name: "Dr. Arvind Sahay", role: "Professor of Marketing", company: "IIM Ahmedabad", img: "https://randomuser.me/api/portraits/men/22.jpg" },
-      { name: "Prof. Rajesh Iyer", role: "Head of Education", company: "ISB Hyderabad", img: "https://randomuser.me/api/portraits/men/25.jpg" },
-      { name: "Dr. Meera Shankar", role: "Policy Advisor", company: "NITI Aayog", img: "https://randomuser.me/api/portraits/women/26.jpg" },
-      { name: "Prof. V. Ramgopal", role: "Director", company: "IIT Delhi", img: "https://randomuser.me/api/portraits/men/28.jpg" },
-      { name: "Dr. S. K. Gupta", role: "Dean", company: "SRM University", img: "https://randomuser.me/api/portraits/men/50.jpg" },
-      { name: "Prof. Anupam Basu", role: "Director", company: "NIT Durgapur", img: "https://randomuser.me/api/portraits/men/51.jpg" }
+      { name: "Dr. Arvind Sahay", role: "Professor of Marketing", company: "IIM Ahmedabad", img: "https://webcdn.imarticus.org/SOF/GarimaB.webp" },
+      { name: "Prof. Rajesh Iyer", role: "Head of Education", company: "ISB Hyderabad", img: "https://webcdn.imarticus.org/isfb/SandipGNew.webp" },
+      { name: "Dr. Meera Shankar", role: "Policy Advisor", company: "NITI Aayog", img: "https://webcdn.imarticus.org/SOF/VijayaM.webp" },
+      { name: "Prof. V. Ramgopal", role: "Director", company: "IIT Delhi", img: "https://webcdn.imarticus.org/isfb/PrathamMNew.webp" },
+      { name: "Dr. S. K. Gupta", role: "Dean", company: "SRM University", img: "https://webcdn.imarticus.org/SOF/ApoorvaJ.webp" },
+      { name: "Prof. Anupam Basu", role: "Director", company: "NIT Durgapur", img: "https://webcdn.imarticus.org/SOF/GarimaB.webp" }
     ],
     // TAB 2: AI & Fintech
     [
-      { name: "Nitin Kamath", role: "Founder & CEO", company: "Zerodha", img: "https://randomuser.me/api/portraits/men/44.jpg" },
-      { name: "Prukalpa Sankar", role: "Co-Founder", company: "Atlan", img: "https://randomuser.me/api/portraits/women/45.jpg" },
-      { name: "Abhinav Kumar", role: "Head of AI Research", company: "TCS", img: "https://randomuser.me/api/portraits/men/46.jpg" },
-      { name: "Sandeep Nailwal", role: "Co-Founder", company: "Polygon", img: "https://randomuser.me/api/portraits/men/47.jpg" },
-      { name: "Harshil Mathur", role: "CEO & Co-Founder", company: "Razorpay", img: "https://randomuser.me/api/portraits/men/60.jpg" },
-      { name: "Neha Narkhede", role: "Co-Founder", company: "Confluent", img: "https://randomuser.me/api/portraits/women/61.jpg" }
+      { name: "Nitin Kamath", role: "Founder & CEO", company: "Zerodha", img: "https://webcdn.imarticus.org/SOF/RKRangan.webp" },
+      { name: "Prukalpa Sankar", role: "Co-Founder", company: "Atlan", img: "https://webcdn.imarticus.org/SOF/RaghvendraS.webp" },
+      { name: "Abhinav Kumar", role: "Head of AI Research", company: "TCS", img: "https://webcdn.imarticus.org/SOF/AbhishantP.webp" },
+      { name: "Sandeep Nailwal", role: "Co-Founder", company: "Polygon", img: "https://webcdn.imarticus.org/SOF/PrasannaL.webp" },
+      { name: "Harshil Mathur", role: "CEO & Co-Founder", company: "Razorpay", img: "https://webcdn.imarticus.org/SOF/PrasarS.webp" },
+      { name: "Neha Narkhede", role: "Co-Founder", company: "Confluent", img: "https://webcdn.imarticus.org/SOF/LeonDS.webp" }
     ]
   ];
 

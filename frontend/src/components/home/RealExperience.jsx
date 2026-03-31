@@ -5,9 +5,9 @@ const RealExperience = () => {
   
   const data = [
     { id: 'R', title: 'Reflections', color: '#c7e36b', type: 'video', img: "https://img.youtube.com/vi/ysz5S6PUM-U/maxresdefault.jpg" },
-    { id: 'E', title: 'Experiences', color: '#d4ed7d', type: 'gallery', img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f" },
-    { id: 'A', title: 'Applications', color: '#e1f2a3', type: 'simple', img: "https://images.unsplash.com/photo-1509062522246-3755977927d7" },
-    { id: 'L', title: 'Leadership', color: '#ebf7c0', type: 'simple', img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d" },
+    { id: 'E', title: 'Experiences', color: '#d4ed7d', type: 'gallery', img: "https://webcdn.imarticus.org/ugsof/EImage1.webp" },
+    { id: 'A', title: 'Applications', color: '#e1f2a3', type: 'simple', img: "https://webcdn.imarticus.org/ugsof/EImage3.webp" },
+    { id: 'L', title: 'Leadership', color: '#ebf7c0', type: 'simple', img: "https://webcdn.imarticus.org/test/5.webp" },
   ];
 
   useEffect(() => {

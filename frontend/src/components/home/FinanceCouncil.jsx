@@ -23,21 +23,21 @@ const FinanceCouncil = () => {
           <div className="col-md-4">
             <div className="finance-card">
               <h5>Investment Banking</h5>
-              <img src="https://via.placeholder.com/120x40" alt="Ambit" />
+              <img src="https://webcdn.imarticus.org/isfb2/Ambit22.webp" alt="Ambit" />
             </div>
           </div>
 
           <div className="col-md-4">
             <div className="finance-card">
               <h5>Asset & Wealth Management</h5>
-              <img src="https://via.placeholder.com/120x40" alt="Motilal" />
+              <img src="https://webcdn.imarticus.org/isfb2/oswal22.webp" alt="Motilal" />
             </div>
           </div>
 
           <div className="col-md-4">
             <div className="finance-card">
               <h5>Digital Finance & AI</h5>
-              <img src="https://via.placeholder.com/120x40" alt="Cognizant" />
+              <img src="https://webcdn.imarticus.org/isfb2/cognizant22.webp" alt="Cognizant" />
             </div>
           </div>
 

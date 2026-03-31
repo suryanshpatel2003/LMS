@@ -2,10 +2,10 @@ import React from "react";
 
 const OutcomesSection = () => {
   const logos = [
-    { name: "University of Cambridge", img: "https://upload.wikimedia.org/wikipedia/en/thumb/1/11/University_of_Cambridge_coat_of_arms.svg/1200px-University_of_Cambridge_coat_of_arms.svg.png" },
-    { name: "St John's College", img: "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/St_John%27s_College_Cambridge_Shield.svg/1200px-St_John%27s_College_Cambridge_Shield.svg.png" },
-    { name: "MIT", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MIT_logo.svg/1280px-MIT_logo.svg.png" },
-    { name: "Carnegie Mellon", img: "https://upload.wikimedia.org/wikipedia/en/thumb/b/bb/Carnegie_Mellon_University_seal.svg/1200px-Carnegie_Mellon_University_seal.svg.png" },
+    { name: "University of Cambridge", img: "https://webcdn.imarticus.org/test/College1.webp" },
+    { name: "St John's College", img: "https://webcdn.imarticus.org/test/College2.webp" },
+    { name: "MIT", img: "https://webcdn.imarticus.org/test/College3.webp" },
+    { name: "Carnegie Mellon", img: "https://webcdn.imarticus.org/ugsof/College4.webp" },
   ];
 
   return (
@@ -35,7 +35,7 @@ const OutcomesSection = () => {
           <div className="col-lg-6 col-md-12">
             <div className="outcome-img-wrapper">
               <img
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
+                src="https://webcdn.imarticus.org/new/OutcomesLaunda.webp"
                 alt="ISFB Success Student"
                 className="img-fluid outcome-main-img"
               />

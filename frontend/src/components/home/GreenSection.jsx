@@ -23,7 +23,7 @@ const GreenSection = () => {
               {/* CARD 1 */}
               <div className="scroll-card light" style={{ top: "100px" }}>
                 <div className="card-inner">
-                  <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" alt="Expertise" />
+                  <img src="https://webcdn.imarticus.org/ugsof/RazorsharpdeepFinanceExpertise.webp" alt="Expertise" />
                   <div className="card-content">
                     <h5>Razorsharp & deep Finance Expertise</h5>
                     <p>A 3-year journey with deep specialisations in Fintech, Financial Analysis, and Global Accounting.</p>
@@ -34,7 +34,7 @@ const GreenSection = () => {
               {/* CARD 2 */}
               <div className="scroll-card dark" style={{ top: "120px" }}>
                 <div className="card-inner">
-                  <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Learning" />
+                  <img src="https://webcdn.imarticus.org/ugsof/AnunderstandingthatsbothGlobalandGrounded.webp" alt="Learning" />
                   <div className="card-content">
                     <h5>Global & Grounded Learning</h5>
                     <p>Exposure from global financial hubs like Singapore to real-world Indian markets.</p>
@@ -45,7 +45,7 @@ const GreenSection = () => {
               {/* CARD 3 */}
               <div className="scroll-card light" style={{ top: "140px" }}>
                 <div className="card-inner">
-                  <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Curriculum" />
+                  <img src="https://webcdn.imarticus.org/ugsof/AI-enabledDecisionMaking.webp" alt="Curriculum" />
                   <div className="card-content">
                     <h5>Industry Ready Curriculum</h5>
                     <p>Hands-on real world projects including ACCA and CFA integrated tracks.</p>

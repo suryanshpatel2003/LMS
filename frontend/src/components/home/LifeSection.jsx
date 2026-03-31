@@ -6,22 +6,22 @@ const LifeSection = () => {
       list: [
         {
           title: "TEDxISFB",
-          img: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
+          img: "https://webcdn.imarticus.org/SOF/Flagship1.webp",
           desc: "Students & Speakers share powerful ideas at the intersection of finance, culture, technology, and philosophy."
         },
         {
           title: "MUN @ ISFB",
-          img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80",
+          img: "https://webcdn.imarticus.org/isfb2/1.webp",
           desc: "Debate global issues and enhance diplomacy & leadership skills in our model united nations."
         },
         {
           title: "ISFB Demo Day",
-          img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=80",
+          img: "https://webcdn.imarticus.org/SOF/CoCurriculars11.webp",
           desc: "Pitch your startup ideas to investors and industry experts in a high-stakes environment."
         },
         {
           title: "ISFB Showcase",
-          img: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80",
+          img: "https://webcdn.imarticus.org/isfb2/NewImage6.webp",
           desc: "Showcase your innovation, projects, and business thinking to the academic community."
         }
       ]

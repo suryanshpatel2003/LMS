@@ -47,7 +47,7 @@ const PaymentPage = () => {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
         amount: order.amount,
         currency: order.currency,
-        name: "LMS Platform",
+        name: "LMS by Suryansh Patel",
         description: "Premium Course Purchase",
         order_id: order.id,
 

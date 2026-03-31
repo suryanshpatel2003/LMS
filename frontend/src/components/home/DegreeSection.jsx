@@ -36,11 +36,11 @@ const DegreeSection = () => {
             <div className="certificates">
 
               <div className="cert-card">
-                <img src="https://via.placeholder.com/400x250" alt="certificate" />
+                <img src="https://webcdn.imarticus.org/new/ACCA.webp" alt="certificate" />
               </div>
 
               <div className="cert-card">
-                <img src="https://via.placeholder.com/400x250" alt="certificate" />
+                <img src="https://webcdn.imarticus.org/new/CFA.webp" alt="certificate" />
               </div>
 
             </div>

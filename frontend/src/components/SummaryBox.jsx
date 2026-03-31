@@ -1,230 +1,196 @@
 import { useState } from "react";
 import { summarizeText } from "../services/aiService";
 import { useAuth } from "../context/AuthContext";
-// 🔥 Lucide Icons
-import { Sparkles, Loader2, Check, Copy, X, FileWarning } from "lucide-react";
+import { toast } from "react-hot-toast";
+import { Sparkles, Loader2, Check, Copy, X, FileWarning, RefreshCcw } from "lucide-react";
 
 const SummaryBox = ({ text }) => {
   const { user } = useAuth();
-
   const [summary, setSummary] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
-  
-  // 🪟 State to handle modal visibility
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // 🔍 Function to check if text is purely a URL or contains URLs
   const handleSummarize = async () => {
+    if (!text || text.trim().length < 20) {
+      toast.error("Text is too short to summarize!");
+      return;
+    }
+
     setIsModalOpen(true);
     setLoading(true);
     setError("");
     setSummary("");
 
-    // Regex to detect URLs (especially ending with .pdf)
     const urlRegex = /(https?:\/\/[^\s]+(\.pdf))/g;
     const containsPdfUrl = urlRegex.test(text);
 
-    // Case 1: If text is ONLY a URL
     if (text.trim().match(urlRegex) && text.trim().split(' ').length === 1) {
       setLoading(false);
-      setError("I cannot read external PDF links directly. Please copy and paste the actual text content from the PDF here to summarize it!");
+      setError("I cannot read external PDF links directly. Please copy and paste the actual text content.");
       return;
     }
 
-    // Case 2: Mixed text. We clean the text by removing the PDF URL before sending it to AI
     let textToSummarize = text;
     if (containsPdfUrl) {
-      textToSummarize = text.replace(urlRegex, '[PDF Link removed for processing]');
+      textToSummarize = text.replace(urlRegex, '[PDF Link removed]');
     }
 
     try {
       const res = await summarizeText(textToSummarize, user.token);
       setSummary(res.summary);
     } catch (err) {
-      setError("Failed to generate summary. Please try again.");
+      setError("Failed to generate summary. AI server busy.");
     } finally {
       setLoading(false);
     }
   };
 
-  const closeOverlay = () => {
-    setIsModalOpen(false);
-  };
-
   const copyToClipboard = () => {
     navigator.clipboard.writeText(summary);
     setCopied(true);
+    toast.success("Summary copied!");
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="mt-4">
-      
-      {/* 🔘 AI Action Button */}
+    <div className="mt-3">
+      {/* Action Button */}
       <button
-        className="btn d-flex align-items-center gap-2 card-hover-effect"
+        className="btn d-flex align-items-center gap-2 transition-all hover-scale"
         style={aiBtnStyle}
         onClick={handleSummarize}
-        disabled={!text}
       >
-        <Sparkles size={16} /> Summarize with AI
+        <Sparkles size={16} /> <span>AI Summary</span>
       </button>
 
-      {/* 🎭 MODAL OVERLAY (Backdrop with Blur) */}
+      {/* Modal Overlay */}
       {isModalOpen && (
-        <div style={modalBackdropStyle} onClick={closeOverlay}>
-          
-          {/* 🪟 Modal Card (Exactly at Center) */}
+        <div style={modalBackdropStyle} onClick={() => setIsModalOpen(false)}>
           <div 
-            className="p-4 p-md-5 rounded-4 position-relative" 
+            className="p-4 rounded-4 shadow-lg mx-3 animate-in" 
             style={modalCardStyle} 
-            onClick={(e) => e.stopPropagation()} // Card pe click karne se modal close nahi hoga
+            onClick={(e) => e.stopPropagation()}
           >
-            
-            {/* ❌ Close Button */}
-            <button 
-              onClick={closeOverlay} 
-              className="position-absolute btn p-2 d-flex align-items-center justify-content-center" 
-              style={closeBtnStyle}
-            >
-              <X size={20} color="rgba(255,255,255,0.6)" />
-            </button>
-
-            {/* ⏳ Glowing Loader State */}
-            {loading && (
-              <div className="text-center py-5">
-                <Loader2 size={36} color="#CEF17B" className="spinner mb-3" />
-                <h5 style={{ color: "#CEF17B", letterSpacing: "1px" }} className="fw-bold">AI IS ANALYZING CONTENT</h5>
-                <p className="text-white-50 m-0 small">Reading through the lesson materials...</p>
+            {/* Header */}
+            <div className="d-flex justify-content-between align-items-center mb-3">
+              <div className="d-flex align-items-center gap-2">
+                <div style={iconBg}>
+                  <Sparkles size={14} color="#60a5fa" />
+                </div>
+                <span className="text-white fw-bold small" style={{ letterSpacing: "1px" }}>AI INSIGHTS</span>
               </div>
-            )}
+              <button onClick={() => setIsModalOpen(false)} className="btn p-1 border-0" style={{ background: 'transparent' }}>
+                <X size={20} color="#94a3b8" />
+              </button>
+            </div>
 
-            {/* ❌ Error State / PDF URL Warning */}
-            {error && (
-              <div className="text-center py-5">
-                <FileWarning size={36} color="#ff4757" className="mb-3" />
-                <h5 style={{ color: "#ff4757" }} className="fw-bold">Notice</h5>
-                <p className="text-white-50 small mb-4" style={{ maxWidth: "400px", margin: "0 auto 1.5rem" }}>
-                  {error}
-                </p>
-                <button className="btn btn-sm" style={aiBtnStyle} onClick={closeOverlay}>
-                  Got it
-                </button>
-              </div>
-            )}
-
-            {/* ✅ Premium Summary Output */}
-            {summary && !loading && (
-              <>
-                <div className="d-flex justify-content-between align-items-center mb-4">
-                  <div className="d-flex align-items-center gap-2">
-                    <div style={iconBg}>
-                      <Sparkles size={14} color="#CEF17B" />
-                    </div>
-                    <span className="text-white fw-bold small" style={{ letterSpacing: "1px" }}>
-                      AI GENERATED SUMMARY
-                    </span>
+            {/* Content States */}
+            <div className="py-2">
+                {loading && (
+                  <div className="text-center py-4">
+                    <Loader2 size={32} color="#60a5fa" className="spinner mb-3" />
+                    <p className="text-info small mb-0 fw-medium">Processing contents...</p>
                   </div>
-                  
-                  {/* Copy Action */}
-                  <button 
-                    onClick={copyToClipboard} 
-                    className="btn btn-sm text-white-50 d-flex align-items-center gap-1 p-0"
-                    style={{ background: "transparent", border: "none" }}
-                  >
-                    {copied ? <Check size={14} color="#CEF17B" /> : <Copy size={14} />}
-                    <span className="small">{copied ? "Copied!" : "Copy"}</span>
-                  </button>
-                </div>
-                
-                <div className="text-white-50 mb-4" style={summaryContentStyle}>
-                  {summary}
-                </div>
-                
-                {/* Subtle Regenerate trigger */}
-                <div className="pt-3 border-top d-flex justify-content-end" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
-                  <button className="btn btn-sm text-white-50 p-0 small" onClick={handleSummarize} style={{ fontSize: "0.8rem" }}>
-                    Not satisfied? <span style={{ color: "#CEF17B" }}>Regenerate</span>
-                  </button>
-                </div>
-              </>
-            )}
+                )}
+
+                {error && (
+                  <div className="text-center py-3">
+                    <FileWarning size={32} color="#f87171" className="mb-2" />
+                    <p className="text-white-50 small px-3">{error}</p>
+                  </div>
+                )}
+
+                {summary && !loading && (
+                  <>
+                    <div className="custom-scrollbar pr-2 mb-4" style={summaryWrapperStyle}>
+                      <p className="text-white-50" style={summaryContentStyle}>{summary}</p>
+                    </div>
+                    
+                    <div className="d-flex gap-2 border-top border-white border-opacity-5 pt-3">
+                        <button onClick={copyToClipboard} className="btn btn-sm flex-fill d-flex align-items-center justify-content-center gap-2" style={secondaryBtnStyle}>
+                           {copied ? <Check size={14} /> : <Copy size={14} />} {copied ? "Done" : "Copy"}
+                        </button>
+                        <button onClick={handleSummarize} className="btn btn-sm flex-fill d-flex align-items-center justify-content-center gap-2" style={secondaryBtnStyle}>
+                           <RefreshCcw size={14} /> Retry
+                        </button>
+                    </div>
+                  </>
+                )}
+            </div>
           </div>
         </div>
       )}
 
-      {/* Spinner animation */}
       <style>{`
         .spinner { animation: spin 1s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .hover-scale:hover { transform: scale(1.02); filter: brightness(1.1); }
+        .animate-in { animation: modalIn 0.3s ease-out; }
+        @keyframes modalIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
       `}</style>
     </div>
   );
 };
 
-/* 🔥 STYLING OBJECTS */
+/* --- PREMIUM UI STYLES --- */
 
 const aiBtnStyle = {
-  backgroundColor: "rgba(206, 241, 123, 0.1)",
-  color: "#CEF17B",
-  border: "1px solid rgba(206, 241, 123, 0.2)",
-  borderRadius: "10px",
+  background: "linear-gradient(90deg, #3b82f6, #60a5fa)",
+  color: "#fff",
+  border: "none",
+  borderRadius: "12px",
   fontWeight: "700",
-  fontSize: "0.85rem",
-  padding: "10px 18px",
-  letterSpacing: "0.5px"
+  fontSize: "0.8rem",
+  padding: "10px 20px",
+  boxShadow: "0 4px 15px rgba(59, 130, 246, 0.3)"
 };
 
 const modalBackdropStyle = {
   position: "fixed",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  background: "rgba(0, 0, 0, 0.75)", 
-  backdropFilter: "blur(12px)", 
-  zIndex: 99999, 
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+  top: 0, left: 0, right: 0, bottom: 0,
+  background: "rgba(15, 23, 42, 0.8)",
+  backdropFilter: "blur(12px)",
+  zIndex: 10000,
+  display: "flex", alignItems: "center", justifyContent: "center"
 };
 
 const modalCardStyle = {
-  background: "#0c1a14", 
-  border: "1px solid rgba(206, 241, 123, 0.1)", // Halki si green theme match karne ke liye border
-  maxWidth: "600px",
-  width: "90%", 
-  boxShadow: "0 25px 50px rgba(0,0,0,0.7)",
-  maxHeight: "85vh",
-  overflowY: "auto",
-};
-
-const closeBtnStyle = {
-  top: "15px",
-  right: "15px",
-  background: "rgba(255,255,255,0.03)",
-  border: "none",
-  borderRadius: "50%",
-  width: "36px",
-  height: "36px"
+  background: "rgba(30, 41, 59, 0.95)",
+  border: "1px solid rgba(255, 255, 255, 0.05)",
+  maxWidth: "500px",
+  width: "100%",
 };
 
 const iconBg = {
-  width: "28px",
-  height: "28px",
-  background: "rgba(206, 241, 123, 0.1)",
+  width: "24px", height: "24px",
+  background: "rgba(59, 130, 246, 0.1)",
   borderRadius: "6px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center"
+  display: "flex", alignItems: "center", justifyContent: "center"
+};
+
+const summaryWrapperStyle = {
+  maxHeight: "350px",
+  overflowY: "auto",
 };
 
 const summaryContentStyle = {
-  fontSize: "0.95rem",
-  lineHeight: "1.7",
-  whiteSpace: "pre-wrap"
+  fontSize: "0.9rem",
+  lineHeight: "1.6",
+  whiteSpace: "pre-wrap",
+};
+
+const secondaryBtnStyle = {
+  background: "rgba(255, 255, 255, 0.05)",
+  color: "#fff",
+  border: "1px solid rgba(255, 255, 255, 0.08)",
+  borderRadius: "10px",
+  padding: "8px 15px",
+  fontSize: "0.75rem",
+  fontWeight: "600"
 };
 
 export default SummaryBox;
